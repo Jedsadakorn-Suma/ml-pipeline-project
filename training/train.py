@@ -25,4 +25,4 @@ with mlflow.start_run(run_name="fashion-mnist-baseline"):
     model.fit(x_train, y_train, epochs=5, validation_split=0.2)
     test_loss, test_acc = model.evaluate(x_test, y_test, verbose=0)
     print(f"\nTest accuracy: {test_acc:.4f}")
-    model.save("../models/saved_model")
+    model.save("models/fashion_mnist.keras")

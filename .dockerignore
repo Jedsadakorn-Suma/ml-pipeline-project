@@ -1,10 +1,6 @@
-__pycache__
+__pycache__/
 *.pyc
-venv
-.env
-mlruns
 .git
 .gitignore
-*.log
-*.pth
-*.h5
+mlruns/
+models/
