@@ -3,6 +3,7 @@ on: [push, pull_request]
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
       - name: Set up Python
@@ -13,6 +14,7 @@ jobs:
         run: |
           python -m venv venv
           source venv/bin/activate
+          pip install --upgrade pip
           pip install -r requirements.txt
       - name: Train model
         run: |
@@ -22,5 +24,5 @@ jobs:
         run: |
           source venv/bin/activate
           uvicorn api.main:app --port 8001 &
-          sleep 10
+          sleep 15
           curl -f http://localhost:8001 || exit 1
